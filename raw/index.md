@@ -8,4 +8,4 @@ The purpose of this project was to make an easy way to convert a directory of ma
 Hopefully, I'll be able to soon implement a side bar that renders out a tree of all the different pages in this site.
 
 # Demo
-Check out this project's [website](https://alexwaitz.github.io/sauce-bucket/) that was generated with the project itself!
+Currently, you're seeing a working demo of the project. Hopefully, as the projects progresses, this page's advancement will also increase.
