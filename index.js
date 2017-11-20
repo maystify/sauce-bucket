@@ -16,7 +16,7 @@ var sauceBucket = {
     if (fs.existsSync(dirname)) {
       return true
     }
-    ensureDirectoryExistence(dirname)
+    this.ensureDirectoryExistence(dirname)
     fs.mkdirSync(dirname)
   },
   /*buildTreeHTML: function (directory) {
