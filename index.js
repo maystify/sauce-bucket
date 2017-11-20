@@ -38,6 +38,12 @@ var sauceBucket = {
       dom.window.document.getElementById("container").innerHTML = converter.makeHtml(read)
       var write = fs.writeFileSync(list_of_locations[i], dom.serialize())
     }
+    dom.window.document.getElementById("container").innerHTML = "<h1>List Of Pages</h1>"
+    for (var i=0; i<list_of_locations.length; i++) {
+      list_of_locations[i] = list_of_locations[i].replace("build", "")
+      dom.window.document.getElementById("container").innerHTML = dom.window.document.getElementById("container").innerHTML + "<p><a href='" + list_of_locations[i] + "'>" + list_of_locations[i].replace(".html", "") + "</a></p>"
+    }
+    var write = fs.writeFileSync("build/directory.html", dom.serialize())
   }
 }
 

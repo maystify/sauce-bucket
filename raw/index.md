@@ -9,3 +9,6 @@ Hopefully, I'll be able to soon implement a side bar that renders out a tree of 
 
 # Demo
 Currently, you're seeing a working demo of the project. Hopefully, as the projects progresses, this page's advancement will also increase.
+
+# Directory
+Check out a directory of pages [here](/directory.html)
