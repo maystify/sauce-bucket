@@ -37,4 +37,4 @@ Also, in your main directory, don't have a file named `auto_sauce_directory.md` 
 Currently, you're seeing a working demo of the project. Hopefully, as the projects progresses, this page's advancement will also increase.
 
 # Directory
-Check out a directory of pages [here](https://alexwaitz.github.io/sauce-bucket/directory.html)
+Check out a directory of pages [here](https://alexwaitz.github.io/sauce-bucket/auto_sauce_directory.html)
