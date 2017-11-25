@@ -28,6 +28,7 @@ var sauceBucket = {
       list_of_locations[i] = list_of_locations[i].replace(".md", ".html")
       this.ensureDirectoryExistence(list_of_locations[i])
       dom.window.document.getElementById("container").innerHTML = converter.makeHtml(read)
+      dom.window.document.getElementById("navbar").innerHTML = settings.name
       var write = fs.writeFileSync(list_of_locations[i], dom.serialize())
     }
     dom.window.document.getElementById("container").innerHTML = "<h1>List Of Pages</h1>"
