@@ -5,8 +5,28 @@ A Lightweight, Easy Static Website Generator
 The purpose of this project was to make an easy way to convert a directory of markdown files to a directory of html files, as I didn't want to have to write out every single html page.
 
 # Getting Started
-Note: Currently, this package isn't CLI enabled so you'll have to use it through a script.
+### Command Line Interface (CLI)
+Install the package globally:
+```
+npm install sauce-bucket -g
+```
+Then, run the program in your CLI:
+```
+sbit READ_DIRECTORY_NAME
+```
+(btw, `sbit` stands for (s)auce (b)ucket (it))
 
+In order to build correctly, you have to have a file in the parent directory called `settings.json` that contains the required settings. Here's a template you can follow:
+```
+{
+  "writeDirectory":WRITE_DIRECTORY_NAME,
+  "name":SITE_NAME,
+  "baseURL":URL_THAT_ALL_THE_FILES_WILL_FOLLOW
+}
+
+```
+
+### Modular
 First, you need to install the Sauce Bucket module:
 ```
 npm install sauce-bucket --save

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var glob = require("glob-fs")({ gitignore: true })
 var fs = require("fs")
 var showdown = require("showdown")
@@ -5,8 +6,10 @@ var converter = new showdown.Converter()
 var path = require("path")
 var jsdom = require("jsdom")
 var { JSDOM } = jsdom
-var dom = new JSDOM(fs.readFileSync("model.html", "utf8"))
+var chalk = require("chalk")
+var figlet = require("figlet")
 
+//base program
 var sauceBucket = {
   parseDirectories: function (directory) {
     return glob.readdirSync(directory + "/**/*.md")
@@ -16,10 +19,11 @@ var sauceBucket = {
     if (fs.existsSync(dirname)) {
       return true
     }
-    this.ensureDirectoryExistence(dirname)
+    this.ensureDirectoryExistence(filePatdirname)
     fs.mkdirSync(dirname)
   },
   convertDirectory: function (settings) {
+    var dom = new JSDOM(fs.readFileSync(__dirname + "/model.html", "utf8"))
     var list_of_locations = this.parseDirectories(settings.readDirectory)
     dom.window.document.getElementById("title").innerHTML = settings.name
     for (var i=0; i<list_of_locations.length; i++) {
@@ -40,6 +44,18 @@ var sauceBucket = {
   }
 }
 
-//sauceBucket.convertDirectory({"readDirectory":"raw", "writeDirectory":"docs", "name":"Sauce Bucket", "baseURL":"https://alexwaitz.github.io/sauce-bucket"})
-
+//modularizing it
 module.exports = sauceBucket
+
+//CLI'ing it
+var userArgs = process.argv.slice(2)
+var execLocation = process.cwd()
+var readLocation = execLocation + "/" + userArgs[0] + "/"
+var settings = JSON.parse(fs.readFileSync(readLocation + "settings.json"))
+settings.readDirectory = userArgs[0]
+sauceBucket.convertDirectory(settings)
+console.log(chalk.blue(figlet.textSync("Done!", {
+  font:"Standard",
+  horizontalLayout:"default",
+  verticalLayout:"default"
+})))

@@ -16,7 +16,22 @@
 <h1 id="why">Why?</h1>
 <p>The purpose of this project was to make an easy way to convert a directory of markdown files to a directory of html files, as I didn't want to have to write out every single html page.</p>
 <h1 id="gettingstarted">Getting Started</h1>
-<p>Note: Currently, this package isn't CLI enabled so you'll have to use it through a script.</p>
+<h3 id="commandlineinterfacecli">Command Line Interface (CLI)</h3>
+<p>Install the package globally:</p>
+<pre><code>npm install sauce-bucket -g
+</code></pre>
+<p>Then, run the program in your CLI:</p>
+<pre><code>sbit READ_DIRECTORY_NAME
+</code></pre>
+<p>(btw, <code>sbit</code> stands for (s)auce (b)ucket (it))</p>
+<p>In order to build correctly, you have to have a file in the parent directory called <code>settings.json</code> that contains the required settings. Here's a template you can follow:</p>
+<pre><code>{
+  "writeDirectory":WRITE_DIRECTORY_NAME,
+  "name":SITE_NAME,
+  "baseURL":URL_THAT_ALL_THE_FILES_WILL_FOLLOW
+}
+</code></pre>
+<h3 id="modular">Modular</h3>
 <p>First, you need to install the Sauce Bucket module:</p>
 <pre><code>npm install sauce-bucket --save
 </code></pre>
@@ -54,6 +69,6 @@
         $("h1").after("<hr class='my-4'></hr>")
       })
     </script>
-
+  
 
 </body></html>
