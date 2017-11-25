@@ -35,7 +35,7 @@ var sauceBucket = {
       list_of_locations[i] = list_of_locations[i].replace(settings.writeDirectory, "")
       dom.window.document.getElementById("container").innerHTML = dom.window.document.getElementById("container").innerHTML + "<p><a href='" + settings.baseURL + list_of_locations[i] + "'>" + list_of_locations[i].replace(".html", "") + "</a></p>"
     }
-    var write = fs.writeFileSync(settings.writeDirectory + "/directory.html", dom.serialize())
+    var write = fs.writeFileSync(settings.writeDirectory + "/auto_sauce_directory.html", dom.serialize())
   }
 }
 
