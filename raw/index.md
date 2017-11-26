@@ -21,10 +21,12 @@ In order to build correctly, you have to have a file in the parent directory cal
 {
   "writeDirectory":WRITE_DIRECTORY_NAME,
   "name":SITE_NAME,
-  "baseURL":URL_THAT_ALL_THE_FILES_WILL_FOLLOW
+  "baseURL":URL_THAT_ALL_THE_FILES_WILL_FOLLOW,
+  "author":AUTHOR_NAME
 }
 
 ```
+Note: the author field is optional
 
 ### Modular
 First, you need to install the Sauce Bucket module:
@@ -51,7 +53,6 @@ Also, in your main directory, don't have a file named `auto_sauce_directory.md` 
 
 # Todo
 - [ ] Add more dynamics to the base model
-- [ ] Create a CLI accessible component of this package
 
 # Demo
 Currently, you're seeing a working demo of the project. Hopefully, as the projects progresses, this page's advancement will also increase.

@@ -1,5 +1,6 @@
 {
   "writeDirectory":"docs",
   "name":"Sauce Bucket",
-  "baseURL":"https://alexwaitz.github.io/sauce-bucket"
+  "baseURL":"https://alexwaitz.github.io/sauce-bucket",
+  "author":"Alexander Waitz"
 }
