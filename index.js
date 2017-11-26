@@ -64,7 +64,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
-var randomValue = getRandomInt(0, 4)
+var randomValue = getRandomInt(0, 3)
 if (randomValue === 0) {
   console.log(chalk.blue(figlet.textSync("Done!", {
     font:"Standard",
@@ -79,7 +79,7 @@ if (randomValue === 1) {
     verticalLayout:"default"
   })))
 }
-if (randomValue === 3) {
+if (randomValue === 2) {
   console.log(chalk.yellow(figlet.textSync("Done!", {
     font:"Standard",
     horizontalLayout:"default",
