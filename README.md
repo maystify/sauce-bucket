@@ -1,6 +1,9 @@
 # Sauce Bucket
 A Lightweight, Easy Static Website Generator
 
+# Contact
+If you have any questions, concerns, or comments, send me an email at [alexanderjwaitz@gmail.com](mailto:alexanderjwaitz@gmail.com)
+
 # Why?
 The purpose of this project was to make an easy way to convert a directory of markdown files to a directory of html files, as I didn't want to have to write out every single html page.
 
