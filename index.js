@@ -19,7 +19,7 @@ var sauceBucket = {
     if (fs.existsSync(dirname)) {
       return true
     }
-    this.ensureDirectoryExistence(filePatdirname)
+    this.ensureDirectoryExistence(filePath)
     fs.mkdirSync(dirname)
   },
   convertDirectory: function (settings) {
