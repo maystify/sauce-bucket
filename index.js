@@ -23,7 +23,7 @@ var sauceBucket = {
     fs.mkdirSync(dirname)
   },
   convertDirectory: function (settings) {
-    day = new Date()
+    var day = new Date()
     var dom = new JSDOM(fs.readFileSync(__dirname + "/model.html", "utf8"))
     dom.window.document.getElementById("navbar").innerHTML = settings.name
     dom.window.document.getElementById("bottombar").innerHTML = day.getFullYear()
