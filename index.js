@@ -46,6 +46,41 @@ var sauceBucket = {
       dom.window.document.getElementById("container").innerHTML = dom.window.document.getElementById("container").innerHTML + "<p><a href='" + settings.baseURL + list_of_locations[i] + "'>" + list_of_locations[i].replace(".html", "") + "</a></p>"
     }
     var write = fs.writeFileSync(settings.writeDirectory + "/auto_sauce_directory.html", dom.serialize())
+  },
+  cli: function() {
+    var userArgs = process.argv.slice(2)
+    var execLocation = process.cwd()
+    var readLocation = execLocation + "/" + userArgs[0] + "/"
+    var settings = JSON.parse(fs.readFileSync(readLocation + "settings.json"))
+    settings.readDirectory = userArgs[0]
+    sauceBucket.convertDirectory(settings)
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    var randomValue = getRandomInt(0, 3)
+    if (randomValue === 0) {
+      console.log(chalk.blue(figlet.textSync("Done!", {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
+    if (randomValue === 1) {
+      console.log(chalk.red(figlet.textSync("Done!", {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
+    if (randomValue === 2) {
+      console.log(chalk.yellow(figlet.textSync("Done!", {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
   }
 }
 
@@ -53,36 +88,4 @@ var sauceBucket = {
 module.exports = sauceBucket
 
 //CLI'ing it
-var userArgs = process.argv.slice(2)
-var execLocation = process.cwd()
-var readLocation = execLocation + "/" + userArgs[0] + "/"
-var settings = JSON.parse(fs.readFileSync(readLocation + "settings.json"))
-settings.readDirectory = userArgs[0]
-sauceBucket.convertDirectory(settings)
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-var randomValue = getRandomInt(0, 3)
-if (randomValue === 0) {
-  console.log(chalk.blue(figlet.textSync("Done!", {
-    font:"Standard",
-    horizontalLayout:"default",
-    verticalLayout:"default"
-  })))
-}
-if (randomValue === 1) {
-  console.log(chalk.red(figlet.textSync("Done!", {
-    font:"Standard",
-    horizontalLayout:"default",
-    verticalLayout:"default"
-  })))
-}
-if (randomValue === 2) {
-  console.log(chalk.yellow(figlet.textSync("Done!", {
-    font:"Standard",
-    horizontalLayout:"default",
-    verticalLayout:"default"
-  })))
-}
+sauceBucket.cli()
