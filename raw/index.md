@@ -54,6 +54,8 @@ The directory you convert should just be a directory of `.md` files. Having subd
 
 Also, in your main directory, don't have a file named `auto_sauce_directory.md` because that's automatically generated as a basic directory list.
 
+Don't like the styling? Simply open up `model.html` and edit away! The styling you add will be present in every page of the build.
+
 # Todo
 - [ ] Add more dynamics to the base model
 
