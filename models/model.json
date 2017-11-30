@@ -1,0 +1,6 @@
+{
+  "writeDirectory":"WRITE_DIRECTORY_NAME",
+  "name":"SITE_NAME",
+  "baseURL":"URL_THAT_ALL_THE_FILES_WILL_FOLLOW",
+  "author":"AUTHOR_NAME"
+}

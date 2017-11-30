@@ -22,9 +22,39 @@ var sauceBucket = {
     this.ensureDirectoryExistence(filePath)
     fs.mkdirSync(dirname)
   },
+  printThing: function (text) {
+    console.log(".net")
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    var randomValue = getRandomInt(0, 3)
+    if (randomValue === 0) {
+      console.log(chalk.blue(figlet.textSync(text, {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
+    if (randomValue === 1) {
+      console.log(chalk.red(figlet.textSync(text, {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
+    if (randomValue === 2) {
+      console.log(chalk.yellow(figlet.textSync(text, {
+        font:"Standard",
+        horizontalLayout:"default",
+        verticalLayout:"default"
+      })))
+    }
+  },
   convertDirectory: function (settings) {
     var day = new Date()
-    var dom = new JSDOM(fs.readFileSync(__dirname + "/model.html", "utf8"))
+    var dom = new JSDOM(fs.readFileSync(__dirname + "/models/model.html", "utf8"))
     dom.window.document.getElementById("navbar").innerHTML = settings.name
     dom.window.document.getElementById("bottombar").innerHTML = day.getFullYear()
     if (settings.author) {
@@ -50,36 +80,19 @@ var sauceBucket = {
   cli: function() {
     var userArgs = process.argv.slice(2)
     var execLocation = process.cwd()
-    var readLocation = execLocation + "/" + userArgs[0] + "/"
-    var settings = JSON.parse(fs.readFileSync(readLocation + "settings.json"))
-    settings.readDirectory = userArgs[0]
-    sauceBucket.convertDirectory(settings)
-    function getRandomInt(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min;
+    var readLocation = execLocation + "/" + userArgs[1] + "/"
+    if (userArgs[0] === "-b" || userArgs[0] === "--build") {
+      var settings = JSON.parse(fs.readFileSync(readLocation + "settings.json"))
+      settings.readDirectory = userArgs[1]
+      sauceBucket.convertDirectory(settings)
+      this.printThing("Done!")
     }
-    var randomValue = getRandomInt(0, 3)
-    if (randomValue === 0) {
-      console.log(chalk.blue(figlet.textSync("Done!", {
-        font:"Standard",
-        horizontalLayout:"default",
-        verticalLayout:"default"
-      })))
-    }
-    if (randomValue === 1) {
-      console.log(chalk.red(figlet.textSync("Done!", {
-        font:"Standard",
-        horizontalLayout:"default",
-        verticalLayout:"default"
-      })))
-    }
-    if (randomValue === 2) {
-      console.log(chalk.yellow(figlet.textSync("Done!", {
-        font:"Standard",
-        horizontalLayout:"default",
-        verticalLayout:"default"
-      })))
+    if (userArgs[0] === "-m" || userArgs[0] === "--make") {
+      var settings = fs.readFileSync("models/model.json")
+      fs.writeFileSync(userArgs[1] + "/settings.json", settings)
+      var index = fs.readFileSync("models/model.md")
+      fs.writeFileSync(userArgs[1] + "/index.md", index)
+      this.printThing("Done!")
     }
   }
 }
