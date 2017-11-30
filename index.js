@@ -23,7 +23,6 @@ var sauceBucket = {
     fs.mkdirSync(dirname)
   },
   printThing: function (text) {
-    console.log(".net")
     function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -58,7 +57,7 @@ var sauceBucket = {
     dom.window.document.getElementById("navbar").innerHTML = settings.name
     dom.window.document.getElementById("bottombar").innerHTML = day.getFullYear()
     if (settings.author) {
-      dom.window.document.getElementById("bottombar").innerHTML = dom.window.document.getElementById("bottombar").innerHTML + " - " + settings.author + "<a href='" + settings.baseURL + "/auto_sauce_directory.html'>Page List</a>"
+      dom.window.document.getElementById("bottombar").innerHTML = settings.author + " - " + dom.window.document.getElementById("bottombar").innerHTML + "<a href='" + settings.baseURL + "/auto_sauce_directory.html'>Page List</a>"
     }
     var list_of_locations = this.parseDirectories(settings.readDirectory)
     dom.window.document.getElementById("title").innerHTML = settings.name
