@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/alexwaitz/sauce-bucket#readme",
   "dependencies": {
-    "chalk": "^2.3.0",
-    "figlet": "^1.2.0",
     "glob": "^7.1.2",
     "glob-fs": "^0.1.7",
     "jsdom": "^11.4.0",

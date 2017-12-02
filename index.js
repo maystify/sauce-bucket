@@ -6,8 +6,6 @@ var converter = new showdown.Converter()
 var path = require("path")
 var jsdom = require("jsdom")
 var { JSDOM } = jsdom
-var chalk = require("chalk")
-var figlet = require("figlet")
 
 //base program
 var sauceBucket = {
