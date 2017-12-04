@@ -70,4 +70,4 @@ When you give Sauce Bucket directory names to either read or write to, make sure
 Currently, you're seeing a working demo of the project. Hopefully, as the projects progresses, this page's advancement will also increase.
 
 # Directory
-Check out a directory of pages [here](https://alexwaitz.github.io/sauce-bucket/auto_sauce_directory.html)
+Click the list on the lower left corner labeled "Page List" to see an automatically created directory of all the site's pages.
