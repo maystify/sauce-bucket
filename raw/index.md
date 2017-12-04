@@ -1,4 +1,5 @@
 # Sauce Bucket
+[![NPM](https://nodei.co/npm/sauce-bucket.png?compact=true)](https://nodei.co/npm/sauce-bucket/)
 A Lightweight, Easy Static Website Generator
 
 # Contact
