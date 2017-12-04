@@ -63,6 +63,8 @@ Don't like the styling? Simply open up `model.html` and edit away! The styling y
 
 When you give Sauce Bucket directory names to either read or write to, make sure that the directories already exist, as Sauce Bucket won't make a parent directory for you.
 
+Want to customize your site's html? Just modify the "model.html" file in your parent directory! (Make sure you keep all the ids, or the rendering will break...)
+
 # Todo
 - [ ] Add more dynamics to the base model
 

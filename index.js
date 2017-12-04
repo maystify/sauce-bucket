@@ -22,9 +22,15 @@ var sauceBucket = {
   },
   convertDirectory: function (settings) {
     console.log("-initializing conversion process")
-    var day = new Date()
-    var dom = new JSDOM(fs.readFileSync(__dirname + "/models/model.html", "utf8"))
+    console.log("-reading and initializing the page model")
+    try {
+      var dom = new JSDOM(fs.readFileSync(__dirname + "/" + settings.readDirectory + "/model.html", "utf8"))
+    }
+    catch (err) {
+      var dom = new JSDOM(fs.readFileSync(__dirname + "/models/model.html", "utf8"))
+    }
     dom.window.document.getElementById("navbar").innerHTML = settings.name
+    var day = new Date()
     dom.window.document.getElementById("bottombar").innerHTML = day.getFullYear()
     if (settings.author) {
       dom.window.document.getElementById("bottombar").innerHTML = settings.author + " - " + dom.window.document.getElementById("bottombar").innerHTML + "<a href='" + settings.baseURL + "/auto_sauce_directory.html'>Page List</a>"
@@ -59,6 +65,7 @@ var sauceBucket = {
       console.log("-convert begin")
       sauceBucket.convertDirectory(settings)
       console.log("-done!")
+      return
     }
     if (userArgs[0] === "-m" || userArgs[0] === "--make") {
       console.log("-writing out base files")
@@ -66,9 +73,12 @@ var sauceBucket = {
       fs.writeFileSync(userArgs[1] + "/settings.json", settings)
       var index = fs.readFileSync("models/model.md")
       fs.writeFileSync(userArgs[1] + "/index.md", index)
+      var model = fs.readFileSync("models/model.html")
+      fs.writeFileSync(userArgs[1] + "/model.html", index)
       console.log("-done!")
+      return
     }
-    if (userArgs[0] === undefined) {
+    else {
       console.log("\nusage: sbit [--command] [passed variable]\n\nHere are the commands:\n\n-b or --build converts the passed directory into the html version\n-m or --make writes out a template project in the passed directory\n")
     }
   }
