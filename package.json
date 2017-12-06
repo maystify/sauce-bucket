@@ -25,5 +25,14 @@
   },
   "bin": {
     "sbit": "index.js"
-  }
+  },
+  "keywords": [
+    "cli",
+    "generator",
+    "html",
+    "markdown",
+    "site",
+    "static",
+    "static-site"
+  ]
 }
