@@ -9,16 +9,11 @@ var { JSDOM } = jsdom
 
 //base program
 var sauceBucket = {
-  parseDirectories: function (directory) {
+  parseFiles: function (directory) {
     return glob.readdirSync(directory + "/**/*.md")
   },
-  ensureDirectoryExistence: function (filePath) {
-    var dirname = path.dirname(filePath)
-    if (fs.existsSync(dirname)) {
-      return true
-    }
-    this.ensureDirectoryExistence(filePath)
-    fs.mkdirSync(dirname)
+  parseDirectories: function (directory) {
+    return glob.readdirSync(directory + "/**/")
   },
   convertDirectory: function (settings) {
     console.log("-initializing conversion process")
@@ -35,16 +30,26 @@ var sauceBucket = {
     if (settings.author) {
       dom.window.document.getElementById("bottombar").innerHTML = settings.author + " - " + dom.window.document.getElementById("bottombar").innerHTML + "<a href='" + settings.baseURL + "/auto_sauce_directory.html'>Page List</a>"
     }
-    var list_of_locations = this.parseDirectories(settings.readDirectory)
     dom.window.document.getElementById("title").innerHTML = settings.name
+    var list_of_locations = this.parseFiles(settings.readDirectory)
+    var list_of_directories = this.parseDirectories(settings.readDirectory)
+    for (var i=0; i<list_of_directories.length; i++) {
+      if (list_of_directories[i].endsWith("/") === true) {
+        list_of_directories[i] = list_of_directories[i].replace(settings.readDirectory, settings.writeDirectory)
+        if (!fs.existsSync(list_of_directories[i])) {
+          fs.mkdirSync(list_of_directories[i])
+        }
+      }
+    }
     for (var i=0; i<list_of_locations.length; i++) {
-      var read = fs.readFileSync(list_of_locations[i], "utf8")
-      console.log("-converting " + list_of_locations[i])
-      list_of_locations[i] = list_of_locations[i].replace(settings.readDirectory, settings.writeDirectory)
-      list_of_locations[i] = list_of_locations[i].replace(".md", ".html")
-      this.ensureDirectoryExistence(list_of_locations[i])
-      dom.window.document.getElementById("container").innerHTML = converter.makeHtml(read)
-      var write = fs.writeFileSync(list_of_locations[i], dom.serialize())
+      if (!list_of_locations[i].endsWith("/")) {
+        console.log("-converting " + list_of_locations[i])
+        var read = fs.readFileSync(list_of_locations[i], "utf8")
+        list_of_locations[i] = list_of_locations[i].replace(settings.readDirectory, settings.writeDirectory)
+        list_of_locations[i] = list_of_locations[i].replace(".md", ".html")
+        dom.window.document.getElementById("container").innerHTML = converter.makeHtml(read)
+        var write = fs.writeFileSync(list_of_locations[i], dom.serialize())
+      }
     }
     dom.window.document.getElementById("container").innerHTML = "<h1>List Of Pages</h1>"
     console.log("-creating auto directory")
