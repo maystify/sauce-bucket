@@ -9,7 +9,7 @@ If you have any questions, concerns, or comments, send me an email at [alexander
 The purpose of this project was to make an easy way to convert a directory of markdown files to a directory of html files, as I didn't want to have to write out every single html page.
 
 # Getting Started
-### Command Line Interface (CLI)
+#### Command Line Interface (CLI)
 Install the package globally:
 ```
 npm install sauce-bucket -g
@@ -37,7 +37,7 @@ sbit -m WRITE_DIRECTORY_NAME
 ```
 This will put a few files into the given to get you started on your site. Remember, these files are all templates, and you must actually go into them and fill them out with your data. When you're done, use the command from above to build the raw data into a directory of web ready html files
 
-### Modular
+#### Modular
 First, you need to install the Sauce Bucket module:
 ```
 npm install sauce-bucket --save
