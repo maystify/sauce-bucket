@@ -2,6 +2,9 @@
 [![NPM](https://nodei.co/npm/sauce-bucket.png?compact=true)](https://nodei.co/npm/sauce-bucket/)
 A Lightweight, Easy Static Website Generator
 
+*NOTICE*
+Please use version 2.2.2 and up. Anything older may or may not work.
+
 # Contact
 If you have any questions, concerns, or comments, send me an email at [alexanderjwaitz@gmail.com](mailto:alexanderjwaitz@gmail.com)
 
@@ -71,3 +74,6 @@ Want to customize your site's html? Just modify the "model.html" file in your pa
 
 # Demo
 Check out this project's [website](https://alexwaitz.github.io/sauce-bucket/) that was generated with the project itself!
+
+# License
+MIT
