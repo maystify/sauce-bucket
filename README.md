@@ -39,7 +39,7 @@ Note: the author field is optional
 
 However, to generate a template to start writing out stuff, use this command:
 ```
-sbit -m WRITE_DIRECTORY_NAME
+sbit -n WRITE_DIRECTORY_NAME
 ```
 This will put a few files into the given to get you started on your site. Remember, these files are all templates, and you must actually go into them and fill them out with your data. When you're done, use the command from above to build the raw data into a directory of web ready html files
 
