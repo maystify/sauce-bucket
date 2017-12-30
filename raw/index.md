@@ -3,7 +3,10 @@
 A Lightweight, Easy Static Website Generator
 
 *NOTICE*
+
 Please use version 2.2.2 and up. Anything older may or may not work.
+
+As of 2.2.3, the command line tools have updated. Please read the [website](https://alexwaitz.github.io/sauce-bucket/) or this document to see the latest CLI commands.
 
 # Contact
 If you have any questions, concerns, or comments, send me an email at [alexanderjwaitz@gmail.com](mailto:alexanderjwaitz@gmail.com)

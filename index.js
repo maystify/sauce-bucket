@@ -72,7 +72,7 @@ var sauceBucket = {
       console.log("-done!")
       return
     }
-    if (userArgs[0] === "-m" || userArgs[0] === "--make") {
+    if (userArgs[0] === "-n" || userArgs[0] === "--new") {
       console.log("-writing out base files")
       var settings = fs.readFileSync(__dirname + "/models/model.json")
       fs.writeFileSync(userArgs[1] + "/settings.json", settings)
